@@ -14,6 +14,8 @@ concurrency, `unsafe`, FFI and performance. It is a systems view rather
 than a replacement for the official Rust Book. Code samples are written
 for stable Rust; runtime and compiler internals are implementation
 details and may change across toolchain releases.
+For a side-by-side explanation of CPU memory, allocators and Go/Rust
+memory reclamation, see the [memory model guide](../internals/MEMORY.md).
 
 ---
 

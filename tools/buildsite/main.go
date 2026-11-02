@@ -44,6 +44,7 @@ var manifest = []docSpec{
 	{"behavioral/README.md", "Patterns"},
 	{"concurrency/README.md", "Concurrency"},
 	{"internals/README.md", "Internals"},
+	{"internals/MEMORY.md", "Internals"},
 	{"internals/RUNTIME.md", "Internals"},
 	{"compilers/README.md", "Compilers"},
 	{"compilers/BUILDING_A_LANGUAGE.md", "Compilers"},

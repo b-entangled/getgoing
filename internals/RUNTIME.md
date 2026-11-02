@@ -8,7 +8,9 @@ map/channel operations, panic handling, timers and network polling.
 Implementation details move between Go releases. Examples here target
 the repository's Go 1.26.4 toolchain. The smaller measured packages in
 [`README.md`](README.md) pin language/runtime properties with tests;
-this guide follows the larger mechanisms and how to measure them.
+this guide follows the larger mechanisms and how to measure them. For the
+CPU, virtual-memory and Go-versus-Rust background, see
+[`MEMORY.md`](MEMORY.md).
 
 ---
 

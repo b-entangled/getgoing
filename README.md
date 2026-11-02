@@ -19,6 +19,9 @@ race-checked test suite that names the property it proves. The two
 design collections add [`DESIGNS.md`](sdesign/DESIGNS.md) files that
 compose them into end-to-end systems.
 
+For a connected explanation of CPU memory, virtual memory, allocators,
+[Memory from CPU to language](internals/MEMORY.md).
+
 Guides and focused tutorials cover the rest —
 [networking](networking/README.md), [linux](linux/README.md),
 [database](database/README.md), [gpu](gpu/README.md),

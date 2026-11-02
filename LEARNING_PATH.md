@@ -40,16 +40,18 @@ machine or a cluster.
 
 1. [Concurrency patterns](concurrency/README.md) — goroutines, channels,
    cancellation and worker pools.
-2. [Go runtime internals](internals/README.md) — measured allocation,
+2. [Memory from CPU to language](internals/MEMORY.md) — CPU caches,
+   virtual memory, allocators, type layouts, GC and Go/Rust ownership.
+3. [Go runtime internals](internals/README.md) — measured allocation,
    memory layout, interfaces, maps, GC and goroutines.
-3. [Go runtime deep dive](internals/RUNTIME.md) — scheduler, allocator,
+4. [Go runtime deep dive](internals/RUNTIME.md) — scheduler, allocator,
    reflection, Green Tea GC and arenas.
-4. [Compilers](compilers/README.md) — how source becomes executable code.
-5. [Build a DSL, compiler and assembler in Go](compilers/BUILDING_A_LANGUAGE.md)
+5. [Compilers](compilers/README.md) — how source becomes executable code.
+6. [Build a DSL, compiler and assembler in Go](compilers/BUILDING_A_LANGUAGE.md)
    — a runnable source-to-bytecode pipeline with a toy language and VM.
-6. [Program execution](execution/README.md) — compiler output, ELF loading,
+7. [Program execution](execution/README.md) — compiler output, ELF loading,
    process startup and execution hardening.
-7. [Linux](linux/README.md) — processes, memory, filesystems and the
+8. [Linux](linux/README.md) — processes, memory, filesystems and the
    kernel boundary.
 
 ## 3. Hardware and single-machine systems

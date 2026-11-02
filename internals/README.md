@@ -6,7 +6,9 @@ The packages below pin observable properties in tests — allocation counts via
 `testing.AllocsPerRun` with exact totals, layout via `unsafe`, collection
 via `weak.Pointer` and `runtime.SetFinalizer`.
 For the broader runtime architecture, reflection, GC evolution and arena
-status, see the [runtime deep dive](RUNTIME.md).
+status, see the [runtime deep dive](RUNTIME.md). For a CPU-to-language
+overview of memory, allocators, types and Go/Rust reclamation models, see
+[memory from CPU to language](MEMORY.md).
 
 ```bash
 go test -race ./internals/...

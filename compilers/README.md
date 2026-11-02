@@ -4,21 +4,22 @@ Most engineers use a compiler the way they use a router: it sits in the
 path, it is assumed to work, and it gets blamed when the packet does not
 arrive. This section is for people whose code other machines execute —
 kernels, parsers, numeric loops, generic libraries — and who have never
-read a compiler from front to back. The goal is not to build one. It is
-to know what happens between the file you edited and the instructions
-that retire, so that a strange assembly listing, a 3x slowdown at -O0, or
-an optimiser that quietly deletes your null check reads as a mechanism
-with a name instead of a mystery.
+read a compiler from front to back. This reference explains what happens
+between the file you edited and the instructions that retire, so that a
+strange assembly listing, a 3x slowdown at -O0, or an optimiser that
+quietly deletes your null check reads as a mechanism with a name instead
+of a mystery. For an executable build-it-yourself path in Go, see
+[Building a DSL, compiler and assembler](BUILDING_A_LANGUAGE.md) and the
+[`minilang` implementation](https://github.com/b-entangled/getgoing/tree/main/compilers/minilang).
 
 Every entry has the same four parts, in the same order: the need a
 mechanism fills (**Why.**), the mechanics that fill it (**How.**), the
 ways it fails in production (**Where it breaks.**) and the flags,
 commands, tools and metrics that govern it (**In practice.**). Read them
 top to bottom the first time — entry 1's pipeline is the map the other
-fifteen stand on — and after that they work as reference. There is no
-test suite to run here: the snippets and the commands are the
-specification, and every diagram drawn with arrows is a flow you can
-trace with a finger from left to right.
+fifteen stand on — and after that they work as reference. The overview is
+prose; the companion `minilang` compiler has an executable test suite
+covering its grammar, assembler and bytecode behavior.
 
 The other sections pick up where this one hands the program off: the GPU
 runtime, launches and profiling are [gpu](../gpu/README.md); the kernel

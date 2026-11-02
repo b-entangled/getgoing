@@ -46,6 +46,7 @@ var manifest = []docSpec{
 	{"internals/README.md", "Internals"},
 	{"internals/RUNTIME.md", "Internals"},
 	{"compilers/README.md", "Compilers"},
+	{"compilers/BUILDING_A_LANGUAGE.md", "Compilers"},
 	{"execution/README.md", "Execution"},
 	{"linux/README.md", "Linux"},
 	{"networking/README.md", "Networking"},

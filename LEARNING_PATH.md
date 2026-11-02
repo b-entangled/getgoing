@@ -45,9 +45,11 @@ machine or a cluster.
 3. [Go runtime deep dive](internals/RUNTIME.md) — scheduler, allocator,
    reflection, Green Tea GC and arenas.
 4. [Compilers](compilers/README.md) — how source becomes executable code.
-5. [Program execution](execution/README.md) — compiler output, ELF loading,
+5. [Build a DSL, compiler and assembler in Go](compilers/BUILDING_A_LANGUAGE.md)
+   — a runnable source-to-bytecode pipeline with a toy language and VM.
+6. [Program execution](execution/README.md) — compiler output, ELF loading,
    process startup and execution hardening.
-6. [Linux](linux/README.md) — processes, memory, filesystems and the
+7. [Linux](linux/README.md) — processes, memory, filesystems and the
    kernel boundary.
 
 ## 3. Hardware and single-machine systems

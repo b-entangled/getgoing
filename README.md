@@ -13,16 +13,17 @@ measured), [`sdesign/`](sdesign/README.md) (system-design building
 blocks) and [`distributed/`](distributed/README.md) (distributed-system
 mechanisms).
 
-73 packages in total — 28 pattern packages, each with a different domain,
-and 45 companion packages — each with a package doc comment and a
+74 documented packages in total — 28 pattern packages, each with a different
+domain, and 46 companion packages — each with a package doc comment and a
 race-checked test suite that names the property it proves. The two
 design collections add [`DESIGNS.md`](sdesign/DESIGNS.md) files that
 compose them into end-to-end systems.
 
-Prose collections without packages carry the rest —
+Guides and focused tutorials cover the rest —
 [networking](networking/README.md), [linux](linux/README.md),
 [database](database/README.md), [gpu](gpu/README.md),
-[compilers](compilers/README.md), [program execution](execution/README.md),
+[compilers](compilers/README.md) (with a [Go DSL/compiler/assembler tutorial](compilers/BUILDING_A_LANGUAGE.md)),
+[program execution](execution/README.md),
 [web services](webservices/README.md), [Rust](rust/README.md),
 [rl](rl/README.md),
 [llm](llm/README.md) (with a [vLLM serving guide](llm/vllm.md)) — and
@@ -242,7 +243,8 @@ concurrency/    Go-native parallel shapes    (4 patterns)
 idioms/         Go-native construction       (2 patterns)
 concepts/       language features            (10 packages)
 mistakes/       pitfalls and their fixes     (8 packages)
-internals/      runtime behaviour, measured  (9 packages)
+internals/      runtime behaviour, measured  (10 packages)
+compilers/      compiler reference + minilang compiler/assembler
 sdesign/        system-design blocks         (9 packages + DESIGNS)
 distributed/    distributed mechanisms       (8 packages + DESIGNS)
 agentictools/   the instruments, in prose    (graphify, Obsidian, Soup, REA)

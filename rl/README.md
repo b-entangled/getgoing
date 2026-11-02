@@ -1,5 +1,8 @@
 # Deep reinforcement learning with PyTorch — a knowledge base
 
+New to RL? Start with the [reinforcement learning basics](BASICS.md), then
+return here for a detailed reference to deep methods and their trade-offs.
+
 Reinforcement learning is the machine-learning setting where nobody
 hands you the answer key. An agent acts, the environment answers with a
 single number, minutes late, covering everything the agent did before

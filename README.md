@@ -31,11 +31,12 @@ documents the four instruments these notes are read, written, trained
 and inspected with. The [`android/`](android/README.md) project packages
 the interactive field guide as an offline Android reader.
 
-The [deep reinforcement learning reference](rl/README.md) covers major
-value-based, policy-gradient, actor–critic, model-based, offline, and
-imitation-learning algorithms; its [physical robotics companion](rl/ROBOTICS.md)
-walks through task design, simulation-to-real transfer, deployment
-boundaries, and staged hardware evaluation.
+Start with [reinforcement learning basics](rl/BASICS.md), then use the
+[deep reinforcement learning reference](rl/README.md) for major value-based,
+policy-gradient, actor–critic, model-based, offline, and imitation-learning
+algorithms. Its [physical robotics companion](rl/ROBOTICS.md) walks through
+task design, simulation-to-real transfer, deployment boundaries, and staged
+hardware evaluation.
 
 For a fundamentals-to-advanced order across **all** learning documents,
 including [Go basics](concepts/BASICS.md), follow

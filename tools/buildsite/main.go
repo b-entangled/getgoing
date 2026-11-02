@@ -60,6 +60,7 @@ var manifest = []docSpec{
 	{"database/DESIGNS.md", "Designs"},
 	{"distributed/README.md", "Distributed"},
 	{"distributed/DESIGNS.md", "Distributed"},
+	{"rl/BASICS.md", "RL"},
 	{"rl/README.md", "RL"},
 	{"rl/ROBOTICS.md", "RL"},
 	{"llm/README.md", "LLM"},

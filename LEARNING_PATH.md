@@ -91,15 +91,17 @@ it.
 These guides assume comfort with systems costs and then move from model
 fundamentals to serving and agent tooling.
 
-1. [Reinforcement learning](rl/README.md) — policies, value functions,
-   algorithm families, optimization and preference learning.
-2. [Deep RL for physical robots](rl/ROBOTICS.md) — task formulation,
+1. [Reinforcement learning basics](rl/BASICS.md) — agent/environment
+   interaction, reward and return, policies, values and exploration.
+2. [Deep reinforcement learning](rl/README.md) — algorithm families,
+   optimization, PyTorch implementations and preference learning.
+3. [Deep RL for physical robots](rl/ROBOTICS.md) — task formulation,
    algorithm selection, simulation-to-real transfer and deployment.
-3. [Large language models](llm/README.md) — transformers, training,
+4. [Large language models](llm/README.md) — transformers, training,
    fine-tuning, inference, memory and deployment.
-4. [vLLM serving guide](llm/vllm.md) — engine internals, KV-cache sizing,
+5. [vLLM serving guide](llm/vllm.md) — engine internals, KV-cache sizing,
    metrics, optimization and deployment.
-5. [Agentic tools](agentictools/README.md) — tools for working with,
+6. [Agentic tools](agentictools/README.md) — tools for working with,
    documenting and investigating software and models.
 
 ## Companion: Android reader

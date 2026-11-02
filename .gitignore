@@ -1,0 +1,6 @@
+/buildsite
+/_site/
+/coverage.out
+/site/index.html
+/site/.server.log
+/site/.server.pid

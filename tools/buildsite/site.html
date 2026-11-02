@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{Title}}</title>
+<meta name="description" content="{{Description}}">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1220'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%235eead4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script>
+/* apply the stored theme before first paint */
+try {
+  var t = localStorage.getItem("guide-theme");
+  if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  document.documentElement.dataset.theme = t;
+} catch (e) {}
+</script>
+<style>{{CSS}}</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Show navigation" aria-expanded="false">☰</button>
+  <a class="brand" href="#doc-readme">learnings<span class="brand-light">/guide</span></a>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+    <input id="search" type="search" placeholder="Search systems, concepts, protocols…" autocomplete="off" spellcheck="false" aria-label="Search the guide" aria-expanded="false" role="combobox" aria-controls="palette">
+    <kbd class="search-kbd" id="search-kbd">/</kbd>
+    <div class="palette" id="palette" hidden role="listbox" aria-label="Search results"></div>
+  </div>
+  <div class="topbar-stats" aria-hidden="true">{{Stats}}</div>
+  <button class="icon-btn progress-toggle" id="progress-toggle" type="button" aria-label="Open learning progress" aria-haspopup="dialog" aria-controls="progress-panel" title="Learning progress"><span aria-hidden="true">✓</span><span id="progress-mini">0/{{DocCount}}</span></button>
+  <button class="icon-btn" id="listen-toggle" aria-label="Listen to this page" title="Listen (s)">♪</button>
+  <button class="icon-btn" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle theme (t)">◐</button>
+  <button class="icon-btn" id="help-toggle" aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)">?</button>
+</header>
+
+<div class="shell" id="shell">
+  <aside class="sidebar" id="sidebar" aria-label="Documents">
+    <nav aria-label="Guide contents">
+      <div class="nav-head">Contents <span class="nav-count">{{DocCount}} docs</span></div>
+      {{Nav}}
+    </nav>
+    <div class="sidebar-foot">generated {{Generated}} · <code>make site</code></div>
+  </aside>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <p class="hero-eyebrow">SYSTEMS · GO · LLMs</p>
+      <h1 class="hero-title">Understand every layer,<br><span class="hero-accent">one interactive field guide.</span></h1>
+      <p class="hero-sub">{{Description}}</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>{{DocCount}}</b><span>documents</span></div>
+        <div class="hero-stat"><b>{{SectionCount}}</b><span>sections</span></div>
+        <div class="hero-stat"><b>4</b><span>ways to explore</span></div>
+        <div class="hero-stat hero-hint"><b>/</b><span>press to search</span></div>
+      </div>
+    </section>
+
+    <div class="chips-bar">
+      <div class="chips" id="chips" role="group" aria-label="Filter by category">{{Chips}}</div>
+      <div class="chips-meta" id="filter-meta" hidden><span class="filter-count" id="filter-count"></span><button type="button" class="link-btn" id="clear-filter">clear filter</button></div>
+    </div>
+
+    <div class="content" id="content">
+{{Content}}
+    </div>
+
+    <footer class="page-foot">
+      <span>Built from the repository's own markdown by <code>tools/buildsite</code></span>
+      <span>press <kbd>?</kbd> for shortcuts</span>
+    </footer>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="On this page">
+    <div class="toc-head">On this page</div>
+    <div class="toc-body" id="toc-body"></div>
+  </aside>
+</div>
+
+<div class="help-overlay" id="help" hidden role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+  <div class="help-card">
+    <div class="help-head"><h2>Keyboard shortcuts</h2><button type="button" class="icon-btn" id="help-close" aria-label="Close">✕</button></div>
+    <dl class="help-grid">
+      <dt><kbd>/</kbd></dt><dd>Focus search</dd>
+      <dt><kbd>Esc</kbd></dt><dd>Clear search / close overlays</dd>
+      <dt><kbd>p</kbd></dt><dd>Open learning progress</dd>
+      <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>Next / previous document</dd>
+      <dt><kbd>s</kbd> <kbd>Space</kbd></dt><dd>Play / pause narration</dd>
+      <dt><kbd>,</kbd> <kbd>.</kbd></dt><dd>Sentence back / forward</dd>
+      <dt><kbd>t</kbd></dt><dd>Toggle light / dark theme</dd>
+      <dt><kbd>?</kbd></dt><dd>Show this help</dd>
+      <dt><kbd>↑</kbd> <kbd>↓</kbd> <kbd>Enter</kbd></dt><dd>Navigate search results</dd>
+    </dl>
+    <p class="help-foot">Diagrams: click a stage to pin it, <b>▶ trace flow</b> walks the pipeline.</p>
+  </div>
+</div>
+
+<div class="progress-overlay" id="progress-panel" hidden role="dialog" aria-modal="true" aria-labelledby="progress-title">
+  <section class="progress-card">
+    <header class="progress-panel-head">
+      <div><p class="progress-eyebrow">YOUR LEARNING PATH</p><h2 id="progress-title">Keep your momentum</h2><p class="progress-subtitle">Your progress is saved on this device.</p></div>
+      <button type="button" class="icon-btn" id="progress-close" aria-label="Close learning progress">✕</button>
+    </header>
+    <div class="progress-summary" aria-live="polite"><div class="progress-summary-copy"><strong id="progress-summary">0 of {{DocCount}} guides complete</strong><span id="progress-percent">0%</span></div><div class="learning-progress-track"><div id="learning-progress-bar"></div></div></div>
+    <button type="button" class="progress-resume" id="progress-resume"><span><b>Continue reading</b><small id="progress-resume-title">Start with the repository overview</small></span><span aria-hidden="true">→</span></button>
+    <div class="progress-list-head"><span>GUIDES</span><button type="button" class="link-btn" id="progress-reset">Reset progress</button></div>
+    <div class="progress-list" id="progress-list" aria-label="Guide completion"></div>
+  </section>
+</div>
+
+<div class="player" id="player" hidden role="region" aria-label="Listen player">
+  <div class="player-meta">
+    <span class="player-title" id="player-title"></span>
+    <span class="player-count" id="player-count"></span>
+  </div>
+  <div class="player-controls">
+    <button class="player-btn" id="p-prev" type="button" title="Previous document" aria-label="Previous document">⏮</button>
+    <button class="player-btn" id="p-back" type="button" title="Back a sentence (,)" aria-label="Back a sentence">⏪</button>
+    <button class="player-btn player-play" id="p-play" type="button" title="Play / pause (s)" aria-label="Play">▶</button>
+    <button class="player-btn" id="p-fwd" type="button" title="Forward a sentence (.)" aria-label="Forward a sentence">⏩</button>
+    <button class="player-btn" id="p-next" type="button" title="Next document" aria-label="Next document">⏭</button>
+    <button class="player-btn player-speed" id="p-speed" type="button" title="Playback speed" aria-label="Playback speed">1×</button>
+    <button class="player-btn" id="p-close" type="button" title="Close player" aria-label="Close player">✕</button>
+  </div>
+  <div class="player-voice-row" id="p-voice-row" hidden>
+    <select class="player-voice" id="p-voice" aria-label="Narration voice"></select>
+    <button class="player-btn" id="p-voice-test" type="button" title="Hear this voice" aria-label="Preview voice">🔊</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>{{JS}}</script>
+</body>
+</html>

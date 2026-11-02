@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080c15" />
+    <title>Distributed Systems — Visual Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="importmap">
+      { "imports": { "three": "https://unpkg.com/three@0.169.0/build/three.module.js" } }
+    </script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Distributed Systems Visual Lab home">
+          <span class="brand-mark"><span></span><span></span><span></span></span>
+          <span>systems<span class="brand-light">/lab</span></span>
+        </a>
+        <div class="topbar-meta"><span class="live-dot"></span> INTERACTIVE LEARNING ENVIRONMENT</div>
+        <button class="help-button" id="help-button" aria-label="About this lab">?</button>
+      </header>
+
+      <main class="workspace">
+        <aside class="concept-rail" aria-label="Distributed systems concepts">
+          <div class="rail-heading"><span class="eyebrow">LEARNING PATH</span><span class="rail-count" id="rail-count">01 <i>/</i> 11</span></div>
+          <div class="concept-list" id="concept-list"></div>
+          <div class="rail-footer"><span class="keycap">←</span><span class="keycap">→</span> TO NAVIGATE</div>
+        </aside>
+
+        <section class="visual-column">
+          <div class="visual-header">
+            <div><span class="eyebrow" id="concept-category">FOUNDATIONS / DATA</span><h1 id="concept-title">Replication</h1></div>
+            <div class="scene-status"><span class="live-dot"></span><span id="scene-status">SYSTEM HEALTHY</span></div>
+          </div>
+          <div class="scene-card">
+            <div class="scene-topline"><span><span class="tiny-square"></span> LIVE SIMULATION</span><span id="scene-index">SCENARIO 01</span></div>
+            <div class="scene-viewport" id="scene-viewport">
+              <div class="scene-grid"></div>
+              <div class="scene-vignette"></div>
+              <div class="scene-labels" id="scene-labels"></div>
+              <div class="scene-caption" id="scene-caption"></div>
+              <div class="scene-metrics" aria-label="Simulation metrics">
+                <div><span id="metric-nodes">5</span><small>NODES</small></div>
+                <div><span id="metric-links">4</span><small>LINKS</small></div>
+                <div><span id="metric-step">01</span><small>STEP</small></div>
+              </div>
+              <div class="scene-controls"><button id="restart-button" class="icon-button" aria-label="Restart animation" title="Restart animation">↻</button><span>DRAG TO ORBIT</span><span class="control-divider"></span><button id="pause-scene" class="text-control">PAUSE</button><label class="scene-speed">SPEED <select id="animation-speed" aria-label="Animation speed"><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label></div>
+              <div class="scene-legend" id="scene-legend"></div>
+            </div>
+          </div>
+          <div class="stepper" id="stepper" aria-label="Animation steps"></div>
+        </section>
+
+        <aside class="detail-panel">
+          <div class="detail-heading"><span class="eyebrow">CONCEPT GUIDE</span><span class="read-time" id="read-time">2 MIN READ</span></div>
+          <div class="detail-scroll">
+            <div class="concept-number" id="concept-number">01</div>
+            <h2 id="guide-title">Keep copies<br />in sync.</h2>
+            <p class="lead" id="concept-summary"></p>
+            <div class="divider"></div>
+            <div class="section-label"><span class="section-dot"></span> WHAT’S HAPPENING</div>
+            <p class="body-copy" id="concept-detail"></p>
+            <div class="internals-block">
+              <div class="section-label"><span class="section-dot"></span> INTERNALS</div>
+              <p class="body-copy" id="concept-internals"></p>
+            </div>
+            <div class="callout" id="concept-callout"><span class="callout-icon">↗</span><div><span class="callout-label">WHY IT MATTERS</span><p id="concept-why"></p></div></div>
+            <div class="design-note"><span class="section-dot"></span><div><span class="design-label">DESIGN CHOICE</span><p id="concept-design"></p></div></div>
+          </div>
+          <div class="audio-player">
+            <div class="audio-top"><div class="audio-icon">♫</div><div class="audio-text"><strong>Clear audio explanation</strong><span id="audio-state">Ready when you are</span></div><span class="audio-duration" id="audio-duration">~ 0:20</span></div>
+            <div class="voice-mode" aria-label="Narration style">
+              <button class="active" data-voice-mode="clear" type="button">Clear</button>
+              <button data-voice-mode="female" type="button">Female</button>
+              <button data-voice-mode="calm" type="button">Calm</button>
+            </div>
+            <div class="voice-heading"><label for="voice-select">STUDIO VOICE</label><button id="voice-preview" class="voice-preview" type="button">▶ Preview</button></div>
+            <div class="voice-row"><select id="voice-select" aria-label="Choose a preferred narration voice"><option value="">Browser default</option></select></div>
+            <div class="voice-hint" id="voice-hint">Only clearer English voices are shown when your browser exposes them.</div>
+            <div class="audio-controls"><button class="play-button" id="audio-play" aria-label="Play audio description"><span class="play-symbol">▶</span></button><div class="audio-track"><div class="audio-track-line"><span id="audio-progress"></span></div><div class="audio-times"><span id="audio-current">0:00</span><span id="audio-total">0:20</span></div></div><button class="audio-speed" id="audio-speed" aria-label="Change narration speed">0.85×</button></div>
+          </div>
+        </aside>
+      </main>
+      <footer class="footer"><span>BUILT FOR CURIOUS MINDS</span><span>ONE NODE AT A TIME <i>✳</i></span></footer>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -1,5 +1,7 @@
 # Go Design Patterns
 
+[![Publish learning guide](https://github.com/b-entangled/getgoing/actions/workflows/pages.yml/badge.svg)](https://github.com/b-entangled/getgoing/actions/workflows/pages.yml)
+
 Explore the notes as a searchable, interactive [public learning guide](https://b-entangled.github.io/getgoing/).
 
 Working implementations of every pattern decided in

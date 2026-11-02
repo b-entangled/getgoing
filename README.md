@@ -36,7 +36,8 @@ Start with [reinforcement learning basics](rl/BASICS.md), then use the
 policy-gradient, actor–critic, model-based, offline, and imitation-learning
 algorithms. Its [physical robotics companion](rl/ROBOTICS.md) walks through
 task design, simulation-to-real transfer, deployment boundaries, and staged
-hardware evaluation.
+hardware evaluation. The hands-on [MuJoCo guide](rl/MUJOCO.md) covers robot
+modeling, calibration, RL environment construction and sim-to-real testing.
 
 For a fundamentals-to-advanced order across **all** learning documents,
 including [Go basics](concepts/BASICS.md), follow

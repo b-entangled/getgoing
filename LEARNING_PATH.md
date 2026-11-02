@@ -95,13 +95,15 @@ fundamentals to serving and agent tooling.
    interaction, reward and return, policies, values and exploration.
 2. [Deep reinforcement learning](rl/README.md) — algorithm families,
    optimization, PyTorch implementations and preference learning.
-3. [Deep RL for physical robots](rl/ROBOTICS.md) — task formulation,
+3. [MuJoCo robot modeling for RL](rl/MUJOCO.md) — model a robot, match its
+   controller and sensors, train in simulation, and evaluate sim-to-real.
+4. [Deep RL for physical robots](rl/ROBOTICS.md) — task formulation,
    algorithm selection, simulation-to-real transfer and deployment.
-4. [Large language models](llm/README.md) — transformers, training,
+5. [Large language models](llm/README.md) — transformers, training,
    fine-tuning, inference, memory and deployment.
-5. [vLLM serving guide](llm/vllm.md) — engine internals, KV-cache sizing,
+6. [vLLM serving guide](llm/vllm.md) — engine internals, KV-cache sizing,
    metrics, optimization and deployment.
-6. [Agentic tools](agentictools/README.md) — tools for working with,
+7. [Agentic tools](agentictools/README.md) — tools for working with,
    documenting and investigating software and models.
 
 ## Companion: Android reader

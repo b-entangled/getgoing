@@ -203,5 +203,7 @@ whether an algorithm should bootstrap from the next state.
   practical training details.
 - Read [deep RL for physical robots](ROBOTICS.md) for task formulation,
   simulation-to-real transfer and deployment constraints.
+- Read [MuJoCo robot modeling for RL](MUJOCO.md) for MJCF, dynamics
+  calibration, environment construction and sim-to-real workflow.
 - Use the [learning path](../LEARNING_PATH.md) to place RL alongside the
   rest of the systems and machine-learning material.

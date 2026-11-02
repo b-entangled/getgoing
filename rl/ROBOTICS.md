@@ -14,6 +14,10 @@ simulation to a real robot, and evaluating the result. The examples use
 generic mobile-manipulator and arm terminology; adapt limits, rates, and
 interfaces to the specific robot and its manufacturer documentation.
 
+For a hands-on MuJoCo workflow—including MJCF/URDF modeling, dynamics and
+controller calibration, Gymnasium integration, and sim-to-real testing—see
+the [MuJoCo robot-modeling guide](MUJOCO.md).
+
 ## 1. Where RL fits in a robot control stack
 
 A deployed policy should usually choose bounded setpoints or motion
@@ -302,6 +306,8 @@ policy transfers.
 - [Gymnasium Robotics environments](https://robotics.farama.org/) — task
   interfaces and simulation benchmarks
 - [MuJoCo](https://mujoco.org/) — physics simulation
+- [MuJoCo robot-modeling and RL workflow](MUJOCO.md) — this repository's
+  detailed guide to building a model and transferring a policy
 - [Isaac Lab](https://isaac-sim.github.io/IsaacLab/) — GPU-accelerated
   robot-learning simulation
 - [ROS 2 control](https://control.ros.org/) — controller and hardware

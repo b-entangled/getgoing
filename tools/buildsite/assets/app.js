@@ -18,6 +18,17 @@
     applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
   });
 
+  const readerStyleSelect = $("#reader-style");
+  const readerStyles = new Set(["current", "cold", "hacker", "retro"]);
+  const applyReaderStyle = (style) => {
+    const selected = readerStyles.has(style) ? style : "current";
+    document.documentElement.dataset.readerStyle = selected;
+    readerStyleSelect.value = selected;
+    try { localStorage.setItem("guide-reader-style", selected); } catch (_) {}
+  };
+  applyReaderStyle(document.documentElement.dataset.readerStyle);
+  readerStyleSelect.addEventListener("change", () => applyReaderStyle(readerStyleSelect.value));
+
   /* ---------------- document index ---------------- */
 
   const cleanHeading = (h) => {

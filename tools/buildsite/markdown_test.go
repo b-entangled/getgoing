@@ -178,6 +178,27 @@ func TestEveryManifestDocumentIsRendered(t *testing.T) {
 	}
 }
 
+func TestReaderStyleSelectorAndThemesAreRendered(t *testing.T) {
+	page, err := buildSite("../..", fixTime)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, want := range []string{
+		`id="reader-style"`,
+		`<option value="current">Current</option>`,
+		`<option value="cold">Cold</option>`,
+		`<option value="hacker">Hacker</option>`,
+		`<option value="retro">Retro</option>`,
+		`html[data-reader-style="cold"][data-theme="dark"]`,
+		`html[data-reader-style="hacker"][data-theme="light"]`,
+		`guide-reader-style`,
+	} {
+		if !strings.Contains(page, want) {
+			t.Errorf("generated site is missing reader style feature %q", want)
+		}
+	}
+}
+
 // TestWhyParagraphsRenderAsMotivationCallouts checks the renderer tags
 // a pattern's motivation paragraph and leaves ordinary prose alone.
 func TestWhyParagraphsRenderAsMotivationCallouts(t *testing.T) {

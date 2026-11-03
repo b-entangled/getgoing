@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-reader-style="current">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +11,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <script>
-/* apply the stored theme before first paint */
+/* apply stored appearance preferences before first paint */
 try {
   var t = localStorage.getItem("guide-theme");
   if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
   document.documentElement.dataset.theme = t;
+  var s = localStorage.getItem("guide-reader-style");
+  if (["current", "cold", "hacker", "retro"].indexOf(s) < 0) s = "current";
+  document.documentElement.dataset.readerStyle = s;
 } catch (e) {}
 </script>
 <style>{{CSS}}</style>
@@ -64,7 +67,18 @@ try {
 
     <div class="chips-bar">
       <div class="chips" id="chips" role="group" aria-label="Filter by category">{{Chips}}</div>
-      <div class="chips-meta" id="filter-meta" hidden><span class="filter-count" id="filter-count"></span><button type="button" class="link-btn" id="clear-filter">clear filter</button></div>
+      <div class="chips-tools">
+        <div class="reader-style-control">
+          <label class="reader-style-label" for="reader-style">Reading style</label>
+          <select class="reader-style-select" id="reader-style" name="reader-style" aria-label="Reading style">
+            <option value="current">Current</option>
+            <option value="cold">Cold</option>
+            <option value="hacker">Hacker</option>
+            <option value="retro">Retro</option>
+          </select>
+        </div>
+        <div class="chips-meta" id="filter-meta" hidden><span class="filter-count" id="filter-count"></span><button type="button" class="link-btn" id="clear-filter">clear filter</button></div>
+      </div>
     </div>
 
     <div class="content" id="content">

@@ -189,8 +189,14 @@ func TestReaderStyleSelectorAndThemesAreRendered(t *testing.T) {
 		`<option value="cold">Cold</option>`,
 		`<option value="hacker">Hacker</option>`,
 		`<option value="retro">Retro</option>`,
+		`<option value="cli">CLI</option>`,
+		`<option value="danger">Danger</option>`,
+		`<option value="red-hacker">Red Hacker</option>`,
 		`html[data-reader-style="cold"][data-theme="dark"]`,
 		`html[data-reader-style="hacker"][data-theme="light"]`,
+		`html[data-reader-style="cli"][data-theme="dark"]`,
+		`html[data-reader-style="danger"][data-theme="light"]`,
+		`html[data-reader-style="red-hacker"][data-theme="dark"]`,
 		`guide-reader-style`,
 	} {
 		if !strings.Contains(page, want) {

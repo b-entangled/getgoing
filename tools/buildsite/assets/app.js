@@ -19,7 +19,7 @@
   });
 
   const readerStyleSelect = $("#reader-style");
-  const readerStyles = new Set(["current", "cold", "hacker", "retro"]);
+  const readerStyles = new Set(["current", "cold", "hacker", "retro", "cli", "danger", "red-hacker"]);
   const applyReaderStyle = (style) => {
     const selected = readerStyles.has(style) ? style : "current";
     document.documentElement.dataset.readerStyle = selected;

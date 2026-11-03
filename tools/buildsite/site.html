@@ -17,7 +17,7 @@ try {
   if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
   document.documentElement.dataset.theme = t;
   var s = localStorage.getItem("guide-reader-style");
-  if (["current", "cold", "hacker", "retro"].indexOf(s) < 0) s = "current";
+  if (["current", "cold", "hacker", "retro", "cli", "danger", "red-hacker"].indexOf(s) < 0) s = "current";
   document.documentElement.dataset.readerStyle = s;
 } catch (e) {}
 </script>
@@ -75,6 +75,9 @@ try {
             <option value="cold">Cold</option>
             <option value="hacker">Hacker</option>
             <option value="retro">Retro</option>
+            <option value="cli">CLI</option>
+            <option value="danger">Danger</option>
+            <option value="red-hacker">Red Hacker</option>
           </select>
         </div>
         <div class="chips-meta" id="filter-meta" hidden><span class="filter-count" id="filter-count"></span><button type="button" class="link-btn" id="clear-filter">clear filter</button></div>

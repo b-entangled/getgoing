@@ -28,7 +28,9 @@ Guides and focused tutorials cover the rest —
 [networking](networking/README.md), [linux](linux/README.md),
 [Linux containers and Kubernetes internals](linux/CONTAINERS.md)
 ([Kubernetes](linux/KUBERNETES.md), [networking](linux/CONTAINER_NETWORKING.md),
-[storage](linux/CONTAINER_STORAGE.md)),
+[storage](linux/CONTAINER_STORAGE.md)); hardware-facing Linux guides cover
+[network internals](linux/NETWORKING.md), [DMA](linux/DMA.md), and
+[disk management](linux/DISK.md),
 [database](database/README.md), [gpu](gpu/README.md),
 [compilers](compilers/README.md) (with a [Go DSL/compiler/assembler tutorial](compilers/BUILDING_A_LANGUAGE.md)),
 [program execution](execution/README.md),

@@ -57,6 +57,9 @@ machine or a cluster.
    Docker; then [Kubernetes internals](linux/KUBERNETES.md),
    [container networking](linux/CONTAINER_NETWORKING.md) and
    [container storage](linux/CONTAINER_STORAGE.md).
+10. [Linux networking internals](linux/NETWORKING.md), [DMA](linux/DMA.md)
+    and [disk management](linux/DISK.md) — trace host packets, device memory
+    transfers and storage I/O, including the Go userspace interfaces.
 
 ## 3. Hardware and single-machine systems
 

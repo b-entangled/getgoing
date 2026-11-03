@@ -42,6 +42,12 @@ For the container layer built from these kernel primitives, read the
 cgroups, OCI images/runtimes, Docker's lifecycle, Pod reconciliation, packet
 paths and CSI-backed volumes.
 
+For deeper hardware-facing paths, see the companion guides to
+[Linux networking](NETWORKING.md),
+[DMA and device buffers](DMA.md), and
+[disk/block-device management](DISK.md). They connect NIC and storage
+queues to kernel/user-space interfaces and include practical Go examples.
+
 ---
 
 ## 1. User space, kernel space and system calls

@@ -4,6 +4,7 @@
 package main
 
 import (
+	"io/fs"
 	"os"
 	"path"
 	"path/filepath"
@@ -11,14 +12,20 @@ import (
 	"strings"
 )
 
-// patternDocs are the READMEs whose numbered entries get a source
-// panel. Panels are scoped to patterns so the page stays lean.
-var patternDocs = map[string]bool{
+// sourceDocs are the package indexes whose linked entries get a source
+// panel. Keeping this allowlist makes the published source set deliberate.
+var sourceDocs = map[string]bool{
 	"creational/README.md":  true,
 	"structural/README.md":  true,
 	"behavioral/README.md":  true,
 	"concurrency/README.md": true,
 	"idioms/README.md":      true,
+	"concepts/README.md":    true,
+	"mistakes/README.md":    true,
+	"internals/README.md":   true,
+	"sdesign/README.md":     true,
+	"distributed/README.md": true,
+	"compilers/README.md":   true,
 }
 
 // sourceFile is one package source file ready to be rendered.
@@ -32,7 +39,7 @@ type sourceFile struct {
 // ("1. Singleton — singleton/"), which is resolved relative to the
 // document's own directory.
 func attachSourcePanels(root string, d *doc) {
-	if !patternDocs[d.Spec.Path] {
+	if !sourceDocs[d.Spec.Path] {
 		return
 	}
 	for _, h := range d.Headings {
@@ -65,28 +72,38 @@ func headingPackage(text string) string {
 	return strings.TrimSuffix(p, "/")
 }
 
-// packageSources reads every non-test .go file of dir (files named
-// after the package first), or nil when the directory is not a Go
-// package.
+// packageSources reads every non-test .go file below dir (files named
+// after the package first), or nil when the directory contains no Go
+// source. Relative file paths keep nested packages distinguishable.
 func packageSources(root, dir string) []sourceFile {
 	abs := filepath.Join(root, filepath.FromSlash(dir))
-	entries, err := os.ReadDir(abs)
-	if err != nil {
-		return nil
-	}
 	base := path.Base(dir)
 	var files []sourceFile
-	for _, e := range entries {
-		name := e.Name()
-		if e.IsDir() || !strings.HasSuffix(name, ".go") || strings.HasSuffix(name, "_test.go") {
-			continue
-		}
-		b, err := os.ReadFile(filepath.Join(abs, name))
+	_ = filepath.WalkDir(abs, func(file string, entry fs.DirEntry, err error) error {
 		if err != nil {
-			continue
+			return nil
 		}
-		files = append(files, sourceFile{Name: name, Src: string(b)})
-	}
+		if entry.IsDir() {
+			if file != abs && (entry.Name() == "vendor" || strings.HasPrefix(entry.Name(), ".")) {
+				return filepath.SkipDir
+			}
+			return nil
+		}
+		name := entry.Name()
+		if !strings.HasSuffix(name, ".go") || strings.HasSuffix(name, "_test.go") {
+			return nil
+		}
+		b, err := os.ReadFile(file)
+		if err != nil {
+			return nil
+		}
+		rel, err := filepath.Rel(abs, file)
+		if err != nil {
+			return nil
+		}
+		files = append(files, sourceFile{Name: filepath.ToSlash(rel), Src: string(b)})
+		return nil
+	})
 	if len(files) == 0 {
 		return nil
 	}

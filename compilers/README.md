@@ -21,6 +21,11 @@ fifteen stand on — and after that they work as reference. The overview is
 prose; the companion `minilang` compiler has an executable test suite
 covering its grammar, assembler and bytecode behavior.
 
+## Runnable implementation — [`minilang/`](minilang)
+
+Expand the source panel below to read the Go implementation that accompanies
+the compiler walkthrough.
+
 The other sections pick up where this one hands the program off: the GPU
 runtime, launches and profiling are [gpu](../gpu/README.md); the kernel
 underneath them and the measurement tools are

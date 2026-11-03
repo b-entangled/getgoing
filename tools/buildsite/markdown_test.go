@@ -230,6 +230,29 @@ func TestPatternSectionsCarryViewSourcePanels(t *testing.T) {
 	}
 }
 
+func TestCompanionAndCompilerSectionsCarrySourcePanels(t *testing.T) {
+	page, err := buildSite("../..", fixTime)
+	if err != nil {
+		t.Fatal(err)
+	}
+	body := pageBody(page)
+	for _, dir := range []string{
+		"concepts/closures/",
+		"mistakes/loopvar/",
+		"internals/escape/",
+		"sdesign/lru/",
+		"distributed/raft/",
+		"compilers/minilang/",
+	} {
+		if !strings.Contains(body, `<code>`+dir+`</code>`) {
+			t.Errorf("source panel for %s missing from generated page", dir)
+		}
+	}
+	if !strings.Contains(body, `<span class="source-file-name">legacy/legacy.go</span>`) {
+		t.Error("nested adapter package source missing from generated page")
+	}
+}
+
 // TestEveryPatternEntryHasAWalkthrough asserts every numbered pattern
 // entry ends with a worked example before its proving tests.
 func TestEveryPatternEntryHasAWalkthrough(t *testing.T) {

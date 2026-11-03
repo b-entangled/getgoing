@@ -3,6 +3,8 @@
 [![Publish learning guide](https://github.com/b-entangled/getgoing/actions/workflows/pages.yml/badge.svg)](https://github.com/b-entangled/getgoing/actions/workflows/pages.yml)
 
 Explore the notes as a searchable, interactive [public learning guide](https://b-entangled.github.io/getgoing/).
+The guide also has expandable **View source** panels beneath code-backed
+sections, so users can inspect the Go implementations without leaving Pages.
 
 Working implementations of every pattern decided in
 [`adr/0001-golang-design-patterns.md`](adr/0001-golang-design-patterns.md),

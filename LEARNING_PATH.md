@@ -53,6 +53,10 @@ machine or a cluster.
    process startup and execution hardening.
 8. [Linux](linux/README.md) — processes, memory, filesystems and the
    kernel boundary.
+9. [Linux containers](linux/CONTAINERS.md) — namespaces, cgroups, OCI and
+   Docker; then [Kubernetes internals](linux/KUBERNETES.md),
+   [container networking](linux/CONTAINER_NETWORKING.md) and
+   [container storage](linux/CONTAINER_STORAGE.md).
 
 ## 3. Hardware and single-machine systems
 

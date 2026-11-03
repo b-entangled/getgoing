@@ -24,6 +24,9 @@ For a connected explanation of CPU memory, virtual memory, allocators,
 
 Guides and focused tutorials cover the rest —
 [networking](networking/README.md), [linux](linux/README.md),
+[Linux containers and Kubernetes internals](linux/CONTAINERS.md)
+([Kubernetes](linux/KUBERNETES.md), [networking](linux/CONTAINER_NETWORKING.md),
+[storage](linux/CONTAINER_STORAGE.md)),
 [database](database/README.md), [gpu](gpu/README.md),
 [compilers](compilers/README.md) (with a [Go DSL/compiler/assembler tutorial](compilers/BUILDING_A_LANGUAGE.md)),
 [program execution](execution/README.md),

@@ -34,6 +34,14 @@ libraries and hardening — is traced end to end in
 [`execution`](../execution/README.md). Network-facing services and their
 HTTP/TLS/gRPC boundaries are in [`webservices`](../webservices/README.md).
 
+For the container layer built from these kernel primitives, read the
+[Linux containers guide](CONTAINERS.md), then follow its companions on
+[Kubernetes internals](KUBERNETES.md),
+[container networking](CONTAINER_NETWORKING.md), and
+[container storage](CONTAINER_STORAGE.md). Together they trace namespaces,
+cgroups, OCI images/runtimes, Docker's lifecycle, Pod reconciliation, packet
+paths and CSI-backed volumes.
+
 ---
 
 ## 1. User space, kernel space and system calls
